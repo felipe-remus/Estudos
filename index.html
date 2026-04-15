@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📚 StudyHub — Menu Principal</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-inner">
+        <a href="index.html" class="logo">📚 <span>Study</span>Hub</a>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="index-hero">
+        <h1>Meus Estudos</h1>
+        <p>Organize seus conteúdos, acesse suas matérias e estude de forma estruturada.</p>
+
+        <!-- Stats -->
+        <div class="hero-stats">
+            <div class="hero-stat">
+                <span class="stat-num" id="total-materias">1</span>
+                <span class="stat-label">Matéria</span>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- GRID DE MATÉRIAS -->
+    <!-- Para adicionar uma nova matéria: copie um <a class="menu-card"> e ajuste os dados -->
+    <nav class="menu-grid">
+
+        <!-- MATEMÁTICA -->
+        <a href="matematica.html" class="menu-card" data-color="red">
+            <div class="card-icon">🔢</div>
+            <div class="card-title">Matemática</div>
+            <div class="card-desc">Operações fundamentais: soma, subtração, multiplicação, divisão, frações e potenciação.</div>
+            <div class="card-footer">
+                <div class="card-arrow">Acessar →</div>
+            </div>
+        </a>
+    </nav>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>📚 StudyHub — Seu espaço pessoal de estudos</p>
+    </footer>
+
+    <script>
+        // Atualiza contador de matérias dinamicamente
+        const cards = document.querySelectorAll('.menu-card');
+        const counter = document.getElementById('total-materias');
+        if (counter && cards.length > 0) {
+            counter.textContent = cards.length;
+        }
+    </script>
+</body>
+</html>
