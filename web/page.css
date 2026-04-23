@@ -1,0 +1,606 @@
+/* ═══════════════════════════════════════════════════════════════
+    PÁGINA DE CONTEÚDO
+   ═══════════════════════════════════════════════════════════════ */
+.content-page {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.page-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 2.4rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    letter-spacing: -0.4px;
+}
+
+.page-subtitle {
+    color: #9090b0;
+    margin-bottom: 2rem;
+    font-size: 1.05rem;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+    BREADCRUMB
+   ═══════════════════════════════════════════════════════════════ */
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: #5c5c78;
+    margin-bottom: 1.5rem;
+    padding: 0.5rem 0;
+}
+
+.breadcrumb a {
+    color: #9090b0;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.breadcrumb a:hover {
+    color: #e94560;
+}
+
+.breadcrumb .sep {
+    color: #5c5c78;
+    font-size: 0.75rem;
+}
+
+.breadcrumb .current {
+    color: #e94560;
+    font-weight: 600;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+    ABAS
+   ═══════════════════════════════════════════════════════════════ */
+
+.tabs-container {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.tabs-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: #161627;
+    padding: 0.5rem;
+    border-radius: 50px;
+    border: 1px solid #242444;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3);
+    position: relative;
+    scrollbar-width: thin;
+    scrollbar-color: #3a3a5a #161627;
+    margin-bottom: 1.5rem;
+}
+
+.tabs-nav::-webkit-scrollbar { height: 4px; }
+.tabs-nav::-webkit-scrollbar-track { background: transparent; }
+.tabs-nav::-webkit-scrollbar-thumb { background: #3a3a5a; border-radius: 10px; }
+.tabs-nav::-webkit-scrollbar-thumb:hover { background: #e94560; }
+
+/* Indicador deslizante */
+.tab-indicator {
+    position: absolute;
+    background: #e94560;
+    border-radius: 50px;
+    height: calc(100% - 10px);
+    top: 5px;
+    left: 0;
+    transition: all 0.35s cubic-bezier(0.34, 1.4, 0.64, 1);
+    box-shadow: 0 4px 16px rgba(233, 69, 96, 0.45);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.tab-btn {
+    position: relative;
+    z-index: 1;
+    padding: 0.65rem 1.2rem;
+    background: transparent;
+    color: #9090b0;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 0.88rem;
+    font-weight: 600;
+    font-family: 'Outfit', sans-serif;
+    transition: color 0.25s ease, transform 0.2s ease;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+
+.tab-btn:hover { color: #edf0ff; }
+.tab-btn.active { color: #fff; }
+
+/* Conteúdo das abas */
+.tab-content {
+    display: none;
+    animation: fadeSlideIn 0.35s ease;
+}
+
+.tab-content.active { display: block; }
+
+@keyframes fadeSlideIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+    SEÇÃO DE CONTEÚDO — ÚNICA, UNIVERSAL
+    Funciona para qualquer matéria: texto, fórmula, código, misto.
+   ═══════════════════════════════════════════════════════════════ */
+
+.wiki-section {
+    background: #161627;
+    border: 1px solid #242444;
+    border-radius: 16px;
+    padding: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Títulos */
+.wiki-section h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.7rem;
+    border-bottom: 2px solid #e94560;
+    display: inline-block;
+    letter-spacing: -0.3px;
+}
+
+.wiki-section h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 1.8rem 0 0.8rem;
+    color: #ff6b81;
+}
+
+.wiki-section h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 1.3rem 0 0.6rem;
+    color: #edf0ff;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.wiki-section h4::before {
+    content: '';
+    display: inline-block;
+    width: 3px;
+    height: 14px;
+    background: #e94560;
+    border-radius: 2px;
+    flex-shrink: 0;
+}
+
+/* Texto e listas */
+.content-section p {
+    color: #b090a8;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    line-height: 1.85;
+}
+
+.content-section ul,
+.content-section ol {
+    margin: 0.8rem 0 1rem 1.5rem;
+    color: #9090b0;
+}
+
+.content-section li {
+    margin-bottom: 0.5rem;
+    line-height: 1.7;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+    CAIXAS UNIVERSAIS (funcionam em qualquer matéria)
+   ═══════════════════════════════════════════════════════════════ */
+
+/* INFO — dica ou definição importante */
+.info-box {
+    background: linear-gradient(135deg, rgba(15, 52, 96, 0.5), rgba(15, 52, 96, 0.2));
+    border-left: 3px solid #e94560;
+    border-radius: 0 10px 10px 0;
+    padding: 1.2rem 1.5rem;
+    margin: 1.2rem 0;
+}
+
+.info-box p {
+    color: #edf0ff;
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+/* EXEMPLO — resultado ou caso prático */
+.example-box {
+    background: rgba(46, 204, 113, 0.06);
+    border: 1px solid rgba(46, 204, 113, 0.18);
+    border-radius: 10px;
+    padding: 1.2rem 1.5rem;
+    margin: 1rem 0;
+}
+
+.example-box .example-title {
+    color: #2ecc71;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.example-box .example-title::before { content: '✦'; font-size: 0.7rem; }
+.example-box p { margin-bottom: 0.5rem; font-size: 0.95rem; }
+
+/* ATENÇÃO — alertas e cuidados */
+.warning-box {
+    background: rgba(243, 156, 18, 0.06);
+    border: 1px solid rgba(243, 156, 18, 0.2);
+    border-radius: 10px;
+    padding: 1.2rem 1.5rem;
+    margin: 1rem 0;
+}
+
+.warning-box .warning-title {
+    color: #f39c12;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    font-size: 0.88rem;
+}
+
+.warning-box p {
+    color: #9090b0;
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+    MATEMÁTICA / FÍSICA / QUÍMICA — fórmulas
+   ═══════════════════════════════════════════════════════════════ */
+
+.formula-box {
+    background: #080816;
+    border: 1px solid #242444;
+    border-radius: 10px;
+    padding: 1.2rem 2.5rem 1.2rem 1.5rem;
+    margin: 1rem 0;
+    font-family: 'Courier New', monospace;
+    text-align: center;
+    font-size: 1.15rem;
+    color: #ff6b81;
+    letter-spacing: 0.8px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    user-select: none;
+}
+
+.formula-box:hover {
+    border-color: #e94560;
+    box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.2);
+}
+
+.formula-copy-hint {
+    position: absolute;
+    right: 0.8rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.75rem;
+    color: #5c5c78;
+    font-family: 'Outfit', sans-serif;
+    letter-spacing: 0;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    opacity: 0;
+}
+
+.formula-box:hover .formula-copy-hint { opacity: 1; }
+
+/* ═══════════════════════════════════════════════════════════════
+    T.I. / PROGRAMAÇÃO — blocos de código
+   ═══════════════════════════════════════════════════════════════ */
+
+.code-box {
+    background: #080816;
+    border: 1px solid #242444;
+    border-radius: 10px;
+    margin: 1rem 0;
+    overflow: hidden;
+    transition: border-color 0.3s ease;
+}
+
+.code-box:hover {
+    border-color: #383868;
+}
+
+.code-box .code-lang {
+    background: #13132b;
+    border-bottom: 1px solid #242444;
+    padding: 0.45rem 1rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #e94560;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Outfit', sans-serif;
+}
+
+.code-box .code-lang::before { content: '⌨'; font-size: 0.85rem; }
+
+.code-box pre {
+    padding: 1.2rem 1.5rem;
+    overflow-x: auto;
+    margin: 0;
+    scrollbar-width: thin;
+    scrollbar-color: #3a3a5a #080816;
+}
+
+.code-box pre::-webkit-scrollbar { height: 4px; }
+.code-box pre::-webkit-scrollbar-track { background: transparent; }
+.code-box pre::-webkit-scrollbar-thumb { background: #3a3a5a; border-radius: 10px; }
+
+.code-box code {
+    font-family: 'Courier New', monospace;
+    font-size: 0.92rem;
+    color: #c8c8e0;
+    line-height: 1.85;
+    white-space: pre;
+}
+
+/* Destaques de sintaxe (use com spans dentro do <code>) */
+.code-box .kw  { color: #e94560; font-weight: 600; }    /* palavras-chave: if, for, def, return... */
+.code-box .str { color: #2ecc71; }                       /* strings: "texto", 'texto' */
+.code-box .num { color: #f39c12; }                       /* números: 42, 3.14 */
+.code-box .fn  { color: #7ec8e3; }                       /* funções: print(), len()... */
+.code-box .cm  { color: #5c5c78; font-style: italic; }  /* comentários: # isso */
+
+/* ═══════════════════════════════════════════════════════════════
+    HISTÓRIA / LITERATURA / FILOSOFIA — componentes de texto
+   ═══════════════════════════════════════════════════════════════ */
+
+/* CITAÇÃO */
+.quote-box {
+    border-left: 3px solid #e94560;
+    margin: 1.5rem 0;
+    padding: 1rem 1.5rem;
+    background: rgba(233, 69, 96, 0.04);
+    border-radius: 0 10px 10px 0;
+}
+
+.quote-box blockquote {
+    color: #c8c8e0;
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin: 0 0 0.6rem;
+}
+
+.quote-box cite {
+    color: #5c5c78;
+    font-size: 0.82rem;
+    font-style: normal;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    display: block;
+}
+
+/* DEFINIÇÃO */
+.definition-box {
+    background: rgba(15, 52, 96, 0.35);
+    border: 1px solid rgba(15, 52, 96, 0.6);
+    border-radius: 10px;
+    padding: 1.2rem 1.5rem;
+    margin: 1rem 0;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.4rem 1rem;
+    align-items: start;
+}
+
+.definition-box .def-term {
+    color: #edf0ff;
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding-top: 0.1rem;
+    white-space: nowrap;
+}
+
+.definition-box .def-text {
+    color: #9090b0;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* LINHA DO TEMPO */
+.timeline {
+    position: relative;
+    padding-left: 2rem;
+    margin: 1.2rem 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0.45rem;
+    top: 0.4rem;
+    bottom: 0.4rem;
+    width: 2px;
+    background: linear-gradient(to bottom, #e94560, transparent);
+    border-radius: 2px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 1.4rem;
+    padding-left: 0.5rem;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -1.6rem;
+    top: 0.45rem;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #e94560;
+    box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.2);
+}
+
+.timeline-item .tl-date {
+    color: #e94560;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.2rem;
+    display: block;
+}
+
+.timeline-item .tl-title {
+    color: #edf0ff;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.3rem;
+}
+
+.timeline-item .tl-desc {
+    color: #9090b0;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* DESTAQUE DE CONCEITO */
+.concept-box {
+    background: rgba(233, 69, 96, 0.06);
+    border: 1px solid rgba(233, 69, 96, 0.2);
+    border-radius: 10px;
+    padding: 1.2rem 1.5rem;
+    margin: 1rem 0;
+}
+
+.concept-box .concept-label {
+    color: #e94560;
+    font-weight: 700;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.concept-box .concept-label::before { content: '◆'; font-size: 0.6rem; }
+
+.concept-box p {
+    color: #c8c8e0;
+    font-size: 0.95rem;
+    line-height: 1.75;
+    margin: 0;
+}
+
+/* COMPARAÇÃO */
+.compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.compare-card {
+    background: #0d0d1c;
+    border: 1px solid #242444;
+    border-radius: 10px;
+    padding: 1.1rem 1.3rem;
+}
+
+.compare-card .compare-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.6rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid #242444;
+    color: #5c5c78;
+}
+
+.compare-card:first-child .compare-label { color: #e94560; border-bottom-color: rgba(233, 69, 96, 0.3); }
+.compare-card:last-child  .compare-label { color: #0f7fdc; border-bottom-color: rgba(15, 127, 220, 0.3); }
+
+.compare-card p,
+.compare-card li {
+    color: #9090b0;
+    font-size: 0.88rem;
+    line-height: 1.65;
+    margin: 0;
+}
+
+.compare-card ul {
+    margin: 0;
+    padding-left: 1.1rem;
+}
+
+.compare-card li { margin-bottom: 0.35rem; }
+
+/* ═══════════════════════════════════════════════════════════════
+    BARRA DE PROGRESSO DE LEITURA
+   ═══════════════════════════════════════════════════════════════ */
+
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(90deg, #e94560, #ff6b81, #ff9a9e);
+    z-index: 9999;
+    transition: width 0.08s linear;
+    box-shadow: 0 0 10px rgba(233, 69, 96, 0.6);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+    RESPONSIVIDADE
+   ═══════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+    .content-page { padding: 1rem; }
+    .content-section { padding: 1.5rem; }
+    .page-title { font-size: 1.8rem; }
+    .compare-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+    .content-section h2 { font-size: 1.4rem; }
+    .formula-box { font-size: 1rem; padding: 1rem; }
+    .definition-box { grid-template-columns: 1fr; gap: 0.2rem; }
+    .code-box code { font-size: 0.82rem; }
+}

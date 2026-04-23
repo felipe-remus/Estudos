@@ -1,0 +1,297 @@
+╔══════════════════════════════════════════════════════════════╗
+║                  📚 GUIA DO STUDYHUB                         ║
+║         Como criar páginas e usar os componentes             ║
+╚══════════════════════════════════════════════════════════════╝
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  PARTE 1 — ADICIONAR UMA MATÉRIA NO MENU PRINCIPAL (index.html)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Cole isso dentro de <nav class="menu-grid"> no index.html:
+
+    <a href="NOME.html" class="menu-card" data-color="COR DO TEMA">
+        <div class="card-title">NOME</div>
+        <div class="card-desc">BREVE EXPLICAÇÃO SOBRE</div>
+        <div class="card-footer">
+            <div class="card-arrow">Acessar →</div>
+        </div>
+    </a>
+
+  → NOME.html        = nome do arquivo da página dessa matéria
+  → data-color       = cor do destaque do card. Opções disponíveis:
+                         vermelho | azul | verde | roxo | laranja |
+                         verde-azulado | rosa | ciano | amarelo | indigo
+  → card-title       = nome da matéria (ex: "História")
+  → card-desc        = frase curta descrevendo a matéria
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  PARTE 2 — ESTRUTURA BASE DE UMA PÁGINA DE MATÉRIA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  → Breadcrumb: o "caminho" no topo da página
+        <span class="current">NOME DA MATÉRIA</span>
+
+  → Título e subtítulo da página:
+        <h1 class="page-title">NOME</h1>
+        <p class="page-subtitle">Frase descritiva</p>
+
+  → Abas (tabs): cada aba é um botão + uma div de conteúdo.
+    O data-tab do botão DEVE ser igual ao id da div (sem o "tab-"):
+
+        Botão:   <button class="tab-btn" data-tab="minha-aba">
+        Div:     <div class="tab-content" id="tab-minha-aba">
+
+    A primeira aba deve ter "active" nos dois:
+        <button class="tab-btn active" data-tab="primeira">
+        <div class="tab-content active" id="tab-primeira">
+
+  → Seção de conteúdo: use SEMPRE a mesma div, independente da matéria:
+        <div class="content-section">
+            ... todo o conteúdo aqui dentro ...
+        </div>
+
+  → Footer: atualize o texto embaixo:
+        <p>📚 StudyHub — NOME DA MATÉRIA | Use ← → para navegar</p>
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  PARTE 3 — A SEÇÃO ÚNICA: content-section
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Não existe mais wiki-section nem text-section.
+Use apenas <div class="content-section"> para qualquer matéria.
+Todos os componentes abaixo funcionam dentro dela.
+
+
+[ TÍTULOS DENTRO DA SEÇÃO ]
+
+    <h2>Título principal da seção</h2>
+    <h3>Subtítulo</h3>
+    <h4>Tópico menor (aparece com traço vermelho na frente)</h4>
+
+
+[ TEXTO COM DESTAQUE ]
+
+    <strong>palavra em negrito</strong>
+    <em>palavra em itálico</em>
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  PARTE 4 — COMPONENTES UNIVERSAIS
+           (funcionam em qualquer matéria)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+┌─────────────────────────────────────────────────────────────┐
+│  CAIXA DE INFORMAÇÃO AZUL — definições e dicas importantes  │
+└─────────────────────────────────────────────────────────────┘
+
+    <div class="info-box">
+        <p>💡 Texto aqui</p>
+    </div>
+
+
+┌─────────────────────────────────────────────────────────────┐
+│  CAIXA DE EXEMPLO VERDE — exemplo prático ou resultado      │
+└─────────────────────────────────────────────────────────────┘
+
+    <div class="example-box">
+        <div class="example-title">Exemplo</div>
+        <p>Texto do exemplo</p>
+    </div>
+
+
+┌─────────────────────────────────────────────────────────────┐
+│  CAIXA DE ATENÇÃO AMARELA — alertas e cuidados              │
+└─────────────────────────────────────────────────────────────┘
+
+    <div class="warning-box">
+        <div class="warning-title">⚠️ Atenção</div>
+        <p>Texto do aviso</p>
+    </div>
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  PARTE 5 — COMPONENTES PARA FÓRMULAS
+           (Matemática, Física, Química)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+┌─────────────────────────────────────────────────────────────┐
+│  FÓRMULA — exibe uma expressão com destaque, clicável       │
+└─────────────────────────────────────────────────────────────┘
+
+    <div class="formula-box">a + b = c</div>
+
+  → Aparece centralizada, fonte monoespaçada, cor vermelha.
+  → Clique copia a fórmula para a área de transferência automaticamente.
+  → Use para qualquer expressão matemática curta ou média.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  PARTE 6 — COMPONENTES PARA CÓDIGO
+           (T.I., Programação, Lógica)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+┌─────────────────────────────────────────────────────────────┐
+│  BLOCO DE CÓDIGO — exibe código com rótulo da linguagem     │
+└─────────────────────────────────────────────────────────────┘
+
+    <div class="code-box">
+        <div class="code-lang">Python</div>
+        <pre><code>print("Olá, mundo!")</code></pre>
+    </div>
+
+  → code-lang = nome da linguagem exibido no topo (Python, JavaScript,
+    HTML, SQL, C++, Pseudocódigo, etc.)
+  → O código dentro de <code> é exibido com fonte monoespaçada,
+    fundo escuro e scroll horizontal se necessário.
+
+  DESTAQUES DE SINTAXE (opcional):
+  Você pode colorir partes do código com spans dentro do <code>:
+
+    <span class="kw">if</span>          → vermelho   — palavras-chave (if, for, def, return...)
+    <span class="str">"texto"</span>   → verde      — strings e textos entre aspas
+    <span class="num">42</span>        → laranja    — números
+    <span class="fn">print</span>      → azul claro — nomes de funções
+    <span class="cm"># comentário</span> → cinza    — comentários
+
+  Exemplo completo com destaques:
+
+    <div class="code-box">
+        <div class="code-lang">Python</div>
+        <pre><code><span class="kw">for</span> i <span class="kw">in</span> range(<span class="num">5</span>):
+    <span class="fn">print</span>(<span class="str">"Repetição:"</span>, i)  <span class="cm"># exibe 0 até 4</span></code></pre>
+    </div>
+
+  → Os destaques são opcionais: sem eles o código aparece em cinza claro,
+    o que já é legível. Use os spans apenas quando quiser clareza extra.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  PARTE 7 — COMPONENTES PARA TEXTO
+           (História, Literatura, Filosofia, Geografia...)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+┌─────────────────────────────────────────────────────────────┐
+│  CITAÇÃO — frases de autores, fontes, trechos de obras      │
+└─────────────────────────────────────────────────────────────┘
+
+    <div class="quote-box">
+        <blockquote>Frase da citação aqui.</blockquote>
+        <cite>— Nome do Autor, Nome da Obra (ano)</cite>
+    </div>
+
+  → Aparece com barra vermelha à esquerda e texto em itálico.
+  → Use para: frases de filósofos, discursos históricos, trechos literários.
+
+
+┌─────────────────────────────────────────────────────────────┐
+│  DEFINIÇÃO — explica um termo ou conceito                   │
+└─────────────────────────────────────────────────────────────┘
+
+    <div class="definition-box">
+        <span class="def-term">Nome do Termo</span>
+        <p class="def-text">Explicação do que significa.</p>
+    </div>
+
+  → Termo em destaque à esquerda, explicação à direita, fundo azul escuro.
+  → Repita vários em sequência para montar um glossário.
+  → Use para: conceitos, filósofos e suas ideias, vocabulário técnico.
+
+
+┌─────────────────────────────────────────────────────────────┐
+│  LINHA DO TEMPO — eventos em ordem cronológica              │
+└─────────────────────────────────────────────────────────────┘
+
+    <div class="timeline">
+
+        <div class="timeline-item">
+            <span class="tl-date">ANO ou PERÍODO</span>
+            <div class="tl-title">Nome do evento</div>
+            <p class="tl-desc">Descrição breve do que aconteceu.</p>
+        </div>
+
+    </div>
+
+  → Linha vertical com marcadores vermelhos. Adicione quantos itens precisar.
+  → Use para: cronologias, fases de um período, etapas de um processo.
+
+
+┌─────────────────────────────────────────────────────────────┐
+│  DESTAQUE DE CONCEITO — ideia central de um tema            │
+└─────────────────────────────────────────────────────────────┘
+
+    <div class="concept-box">
+        <div class="concept-label">Nome do Conceito</div>
+        <p>Explicação da ideia principal.</p>
+    </div>
+
+  → Fundo avermelhado suave com rótulo em vermelho.
+  → Use para: a ideia central de uma aula, tese de um filósofo,
+    definição mais importante de um tema.
+
+
+┌─────────────────────────────────────────────────────────────┐
+│  COMPARAÇÃO — contrasta dois lados de um assunto            │
+└─────────────────────────────────────────────────────────────┘
+
+    <div class="compare-grid">
+
+        <div class="compare-card">
+            <div class="compare-label">LADO A</div>
+            <p>Texto descrevendo o lado A.</p>
+            <ul>
+                <li>Característica 1</li>
+                <li>Característica 2</li>
+            </ul>
+        </div>
+
+        <div class="compare-card">
+            <div class="compare-label">LADO B</div>
+            <p>Texto descrevendo o lado B.</p>
+            <ul>
+                <li>Característica 1</li>
+                <li>Característica 2</li>
+            </ul>
+        </div>
+
+    </div>
+
+  → Dois painéis lado a lado: esquerda em vermelho, direita em azul.
+  → Use para: antes x depois, teoria A x teoria B, prós x contras.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  RESUMO — todos os componentes disponíveis
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Use sempre <div class="content-section"> como wrapper.
+  Dentro dela, qualquer combinação destes funciona:
+
+  UNIVERSAIS (qualquer matéria):
+    info-box        → dica ou definição importante  (azul)
+    example-box     → exemplo prático ou saída      (verde)
+    warning-box     → alerta ou cuidado             (amarelo)
+
+  FÓRMULAS (Matemática, Física, Química):
+    formula-box     → expressão matemática clicável para copiar
+
+  CÓDIGO (T.I., Programação):
+    code-box        → bloco de código com rótulo da linguagem
+      .kw           → palavra-chave  (vermelho)
+      .str          → string         (verde)
+      .num          → número         (laranja)
+      .fn           → função         (azul claro)
+      .cm           → comentário     (cinza)
+
+  TEXTO (História, Literatura, Filosofia, Geo):
+    quote-box       → citação de autor ou fonte
+    definition-box  → termo + explicação (glossário)
+    timeline        → eventos em ordem cronológica
+    concept-box     → ideia central do tema
+    compare-grid    → dois lados comparados
