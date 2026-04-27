@@ -14,7 +14,6 @@
     update();
 })();
 
-
 /* ─── 2. BOTÃO FLUTUANTE SCROLL-TO-TOP ──────────────────────── */
 (function initFabTop(){
     const fab = document.createElement('button');
@@ -31,7 +30,6 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 })();
-
 
 /* ─── 3. TOAST NOTIFICATION ──────────────────────────────────── */
 function showToast(msg, icon = '✓'){
@@ -51,7 +49,6 @@ function showToast(msg, icon = '✓'){
         setTimeout(() => toast.remove(), 350);
     }, 2200);
 }
-
 
 /* ─── 4. SISTEMA DE ABAS ─────────────────────────────────────── */
 const tabButtons  = document.querySelectorAll('.tab-btn');
@@ -124,7 +121,6 @@ if (tabButtons.length > 0) {
     });
 }
 
-
 /* ─── 5. FÓRMULAS — CLIQUE PARA COPIAR ──────────────────────── */
 document.querySelectorAll('.formula-box').forEach(box =>{
     box.setAttribute('title', 'Clique para copiar');
@@ -149,7 +145,6 @@ document.querySelectorAll('.formula-box').forEach(box =>{
     });
 });
 
-
 /* ─── 6. ANIMAÇÃO DOS CARDS (Index) ─────────────────────────── */
 const cards = document.querySelectorAll('.menu-card');
 if (cards.length > 0) {
@@ -173,10 +168,7 @@ if (cards.length > 0) {
     });
 }
 
-
 /* ─── 7. BUSCA / FILTRO DE MATÉRIAS (Index) ─────────────────── */
-console.log('Script carregado');
-
 const searchInput   = document.querySelector('.search-input');
 const noResults     = document.querySelector('.no-results');
 const noResultsTerm = document.getElementById('no-results-term');
@@ -210,3 +202,8 @@ if (searchInput) {
         }
     });
 }
+
+const ACCESS = {
+    user: atob("R3LDqW1pbyBGQlBB"),
+    pass: atob("MTkwMw==")
+};

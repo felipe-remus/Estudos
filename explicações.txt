@@ -114,7 +114,105 @@ Todos os componentes abaixo funcionam dentro dela.
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  PARTE 5 — COMPONENTES PARA FÓRMULAS
+  PARTE 5 — IMAGENS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+┌─────────────────────────────────────────────────────────────┐
+│  TIPO 1 — ILUSTRAÇÃO INLINE                                 │
+│  Pequena, flutua ao lado do texto, sem interromper leitura  │
+└─────────────────────────────────────────────────────────────┘
+
+  Use para: ilustrar rapidamente um objeto, pessoa ou conceito
+  mencionado dentro de um parágrafo. A imagem fica do lado do
+  texto, sem ocupar uma linha inteira.
+
+  → Por padrão, a imagem fica à DIREITA do texto:
+
+        <div class="img-inline-wrap">
+            <img class="img-inline" src="imagem.jpg" alt="descrição">
+            <p>Texto que envolve a imagem aqui...</p>
+        </div>
+
+  → Para colocar à ESQUERDA, adicione a classe "left":
+
+        <div class="img-inline-wrap">
+            <img class="img-inline left" src="imagem.jpg" alt="descrição">
+            <p>Texto que envolve a imagem aqui...</p>
+        </div>
+
+  → A div "img-inline-wrap" é obrigatória: ela garante que o
+    próximo elemento não fique colado na imagem flutuante.
+
+  → Tamanho automático: entre 110px e 180px de largura,
+    dependendo da tela. Em celular vira 100% da largura.
+
+
+┌─────────────────────────────────────────────────────────────┐
+│  TIPO 2 — ILUSTRAÇÃO DE TÍTULO                              │
+│  Média, centralizada, embaixo de um h2 ou h3                │
+└─────────────────────────────────────────────────────────────┘
+
+  Use para: dar um contexto visual logo após o título de uma
+  seção ou subtítulo — funciona como uma "imagem de abertura"
+  para aquele bloco de conteúdo específico.
+
+        <h2>Revolução Francesa</h2>
+        <img class="img-section-title" src="bastilha.jpg" alt="Queda da Bastilha">
+
+  → Opcional: adicione uma legenda logo depois da imagem:
+
+        <img class="img-section-title" src="bastilha.jpg" alt="Queda da Bastilha">
+        <span class="img-caption">Tomada da Bastilha, 14 de julho de 1789</span>
+
+  → A img-caption funciona com qualquer tipo de imagem,
+    não só com img-section-title.
+
+  → Tamanho: até 480px de largura, 200px de altura (objeto
+    recortado para caber, sem distorção).
+
+
+┌─────────────────────────────────────────────────────────────┐
+│  TIPO 3 — CAPA DE SEÇÃO                                     │
+│  Grande, ocupa toda a largura, visual de destaque           │
+└─────────────────────────────────────────────────────────────┘
+
+  Use para: introduzir visualmente toda uma aba ou um grande
+  bloco de conteúdo. Vai no início da seção, antes do texto,
+  como se fosse a capa de um capítulo.
+
+  Versão simples (sem gradiente):
+
+        <img class="img-section-cover" src="capa.jpg" alt="descrição">
+
+  Versão com gradiente e rótulo na base (mais elaborada):
+
+        <div class="img-section-cover-wrap">
+            <img src="capa.jpg" alt="descrição">
+            <span class="cover-label">Texto opcional sobre a imagem</span>
+        </div>
+
+  → A versão com "img-section-cover-wrap" tem um fade escuro
+    na parte de baixo e um pequeno texto que aparece sobre a
+    imagem. O texto dentro de "cover-label" é opcional: remova
+    a linha se não quiser nenhum texto sobre a imagem.
+
+  → Tamanho: 100% de largura, entre 180px e 320px de altura
+    dependendo da tela.
+
+
+[ LEGENDA UNIVERSAL ]
+
+  A classe "img-caption" funciona com qualquer um dos três tipos.
+  Coloque sempre logo após a tag <img> (ou após o </div> do wrap):
+
+        <span class="img-caption">Legenda descritiva da imagem.</span>
+
+  → Aparece centralizada, cinza, em itálico e tamanho pequeno.
+  → Não é obrigatória. Use só quando a imagem precisar de contexto.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  PARTE 6 — COMPONENTES PARA FÓRMULAS
            (Matemática, Física, Química)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -131,7 +229,7 @@ Todos os componentes abaixo funcionam dentro dela.
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  PARTE 6 — COMPONENTES PARA CÓDIGO
+  PARTE 7 — COMPONENTES PARA CÓDIGO
            (T.I., Programação, Lógica)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -172,7 +270,7 @@ Todos os componentes abaixo funcionam dentro dela.
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  PARTE 7 — COMPONENTES PARA TEXTO
+  PARTE 8 — COMPONENTES PARA TEXTO
            (História, Literatura, Filosofia, Geografia...)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -274,24 +372,33 @@ Todos os componentes abaixo funcionam dentro dela.
   Dentro dela, qualquer combinação destes funciona:
 
   UNIVERSAIS (qualquer matéria):
-    info-box        → dica ou definição importante  (azul)
-    example-box     → exemplo prático ou saída      (verde)
-    warning-box     → alerta ou cuidado             (amarelo)
+    info-box               → dica ou definição importante  (azul)
+    example-box            → exemplo prático ou saída      (verde)
+    warning-box            → alerta ou cuidado             (amarelo)
+
+  IMAGENS (qualquer matéria):
+    img-inline             → pequena, flutua ao lado do texto
+    img-inline + .left     → mesma coisa, mas do lado esquerdo
+    img-inline-wrap        → div obrigatória para conter o float
+    img-section-title      → média, centralizada sob um h2/h3
+    img-section-cover      → grande, capa de seção (versão simples)
+    img-section-cover-wrap → grande, capa com gradiente e rótulo
+    img-caption            → legenda cinza e itálica (universal)
 
   FÓRMULAS (Matemática, Física, Química):
-    formula-box     → expressão matemática clicável para copiar
+    formula-box            → expressão matemática clicável para copiar
 
   CÓDIGO (T.I., Programação):
-    code-box        → bloco de código com rótulo da linguagem
-      .kw           → palavra-chave  (vermelho)
-      .str          → string         (verde)
-      .num          → número         (laranja)
-      .fn           → função         (azul claro)
-      .cm           → comentário     (cinza)
+    code-box               → bloco de código com rótulo da linguagem
+      .kw                  → palavra-chave  (vermelho)
+      .str                 → string         (verde)
+      .num                 → número         (laranja)
+      .fn                  → função         (azul claro)
+      .cm                  → comentário     (cinza)
 
   TEXTO (História, Literatura, Filosofia, Geo):
-    quote-box       → citação de autor ou fonte
-    definition-box  → termo + explicação (glossário)
-    timeline        → eventos em ordem cronológica
-    concept-box     → ideia central do tema
-    compare-grid    → dois lados comparados
+    quote-box              → citação de autor ou fonte
+    definition-box         → termo + explicação (glossário)
+    timeline               → eventos em ordem cronológica
+    concept-box            → ideia central do tema
+    compare-grid           → dois lados comparados

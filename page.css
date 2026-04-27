@@ -1,7 +1,7 @@
 /* ═══════════════════════════════════════════════════════════════
     PÁGINA DE CONTEÚDO
    ═══════════════════════════════════════════════════════════════ */
-.content-page {
+   .content-page {
     max-width: 1000px;
     margin: 0 auto;
     padding: 2rem;
@@ -572,6 +572,146 @@
 .compare-card li { margin-bottom: 0.35rem; }
 
 /* ═══════════════════════════════════════════════════════════════
+    IMAGENS — três tipos de uso
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── TIPO 1: ILUSTRAÇÃO INLINE ────────────────────────────────
+   Pequena, flutua ao lado do texto, não interrompe o parágrafo. */
+.img-inline {
+    float: right;
+    width: clamp(110px, 22%, 180px);
+    margin: 0.2rem 0 1rem 1.4rem;
+    border-radius: 10px;
+    border: 1px solid #242444;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.img-inline:hover {
+    transform: scale(1.04);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
+}
+
+/* Variante: flutua à esquerda */
+.img-inline.left {
+    float: left;
+    margin: 0.2rem 1.4rem 1rem 0;
+}
+
+/* Limpa o float após o parágrafo que contém a imagem */
+.img-inline + p::after,
+.img-inline-wrap::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.img-inline-wrap {
+    overflow: hidden; /* contém o float */
+}
+
+
+/* ── TIPO 2: ILUSTRAÇÃO DE TÍTULO ─────────────────────────────
+   Média, centralizada, aparece logo abaixo de um h2 ou h3
+   para dar contexto visual à seção. */
+.img-section-title {
+    display: block;
+    width: 100%;
+    max-width: 480px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1px solid #242444;
+    margin: 0.8rem auto 1.6rem;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.img-section-title:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5);
+}
+
+/* Caption opcional para qualquer tipo de imagem */
+.img-caption {
+    display: block;
+    text-align: center;
+    color: #5c5c78;
+    font-size: 0.78rem;
+    font-style: italic;
+    margin-top: -1.1rem;
+    margin-bottom: 1.6rem;
+    letter-spacing: 0.3px;
+}
+
+
+/* ── TIPO 3: CAPA DE SEÇÃO ────────────────────────────────────
+   Grande, ocupa toda a largura da seção, visual de destaque.
+   Ideal no topo de uma aba ou bloco de conteúdo importante. */
+.img-section-cover {
+    display: block;
+    width: 100%;
+    height: clamp(180px, 28vw, 320px);
+    object-fit: cover;
+    border-radius: 14px;
+    border: 1px solid #242444;
+    margin: 0 0 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.img-section-cover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6);
+}
+
+/* Versão com gradiente de fade na base (útil como "banner") */
+.img-section-cover-wrap {
+    position: relative;
+    border-radius: 14px;
+    overflow: hidden;
+    margin: 0 0 2rem;
+    border: 1px solid #242444;
+}
+
+.img-section-cover-wrap img {
+    display: block;
+    width: 100%;
+    height: clamp(180px, 28vw, 320px);
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.img-section-cover-wrap:hover img {
+    transform: scale(1.03);
+}
+
+.img-section-cover-wrap::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 55%;
+    background: linear-gradient(to top, rgba(13, 13, 28, 0.82), transparent);
+    pointer-events: none;
+}
+
+.img-section-cover-wrap .cover-label {
+    position: absolute;
+    bottom: 1rem;
+    left: 1.3rem;
+    color: #edf0ff;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
     BARRA DE PROGRESSO DE LEITURA
    ═══════════════════════════════════════════════════════════════ */
 
@@ -596,6 +736,9 @@
     .content-section { padding: 1.5rem; }
     .page-title { font-size: 1.8rem; }
     .compare-grid { grid-template-columns: 1fr; }
+    .img-inline,
+    .img-inline.left { float: none; width: 100%; max-width: 100%; margin: 0 0 1.2rem; }
+    .img-section-title { max-width: 100%; height: 170px; }
 }
 
 @media (max-width: 480px) {
@@ -603,4 +746,7 @@
     .formula-box { font-size: 1rem; padding: 1rem; }
     .definition-box { grid-template-columns: 1fr; gap: 0.2rem; }
     .code-box code { font-size: 0.82rem; }
+    .img-section-title { height: 140px; }
+    .img-section-cover,
+    .img-section-cover-wrap img { height: 160px; }
 }
